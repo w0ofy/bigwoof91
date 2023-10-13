@@ -1,1 +1,1 @@
-![M.Wolf](gitartwork.svg)
+![M Wolf Git Artwork](gitartwork.svg?)
