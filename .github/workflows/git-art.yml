@@ -5,15 +5,23 @@
      - cron: '* 0 * * 6'
    workflow_dispatch:
  jobs:
-   build:
-     name: Make gitartwork SVG
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v2
-       - uses: jasineri/gitartwork@v1
-         with:
-            # Use this username's contribution graph  
-            user_name: bigwoof91
-            # Text on contribution graph 
-            text: M.WOLF
-       - uses: jasineri/simple-push-action@v1
+  create:
+    name: Make SVG
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: jasineri/gitartwork@v1
+        with:
+          # Use this username's contribution graph  
+          user_name: bigwoof91
+          # Text on contribution graph 
+          text: M.WOLF
+      - uses: jasineri/simple-push-action@v1
+  purge:
+    needs: create
+    name: Purge artwork cache
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Purge cache
+        run: |
+          curl -X PURGE https://github.com/bigwoof91/bigwoof91/blob/main/gitartwork.svg
