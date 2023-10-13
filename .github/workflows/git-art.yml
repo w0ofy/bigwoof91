@@ -15,5 +15,5 @@
             # Use this username's contribution graph  
             user_name: bigwoof91
             # Text on contribution graph 
-            text: Mike Wolf
+            text: M.Wolf
        - uses: jasineri/simple-push-action@v1
